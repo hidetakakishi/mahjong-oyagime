@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: greenyellow;
+        }
+
+        .parent_div {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .higashi {
+            position: absolute;
+            background-color: white;
+            font-size: 400%;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            top: 8%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .minami {
+            position: absolute;
+            background-color: white;
+            font-size: 400%;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .nishi {
+            position: absolute;
+            background-color: white;
+            font-size: 400%;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .kita {
+            position: absolute;
+            background-color: white;
+            font-size: 400%;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 85%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+        .button {
+            position: absolute;
+            width: 5em;
+            height: 3em;
+            font-size: 150%;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>麻雀の親決め</h1>
+    <div class="parent_div">
+        <div class="higashi">東</div>
+        <div class="minami">南</div>
+        <div class="nishi">西</div>
+        <div class="kita">北</div>
+        <button type="button" class="button">PUSH</button>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('button').click(function () {
+        let random = Math.floor(Math.random() * 4) + 1;
+        let junban = []
+        switch (random) {
+            case 1:
+                junban = ["higashi", "minami", "nishi", "kita"]
+                break
+            case 2:
+                junban = ["minami", "nishi", "kita", "higashi"]
+                break
+            case 3:
+                junban = ["nishi", "kita", "higashi", "minami"]
+                break
+            case 4:
+                junban = ["kita", "higashi", "minami", "nishi"]
+                break
+        }
+        $("." + junban[0]).text("東")
+        $("." + junban[1]).text("南")
+        $("." + junban[2]).text("西")
+        $("." + junban[3]).text("北")
+    })
+
+</script>
+
+</html>
